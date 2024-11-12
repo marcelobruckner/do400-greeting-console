@@ -3,6 +3,13 @@ pipeline{
         label "nodejs"
     }
     stages{
+        stage('Check NODE_ENV') {
+            steps {
+                script {
+                    echo "NODE_ENV: ${env.NODE_ENV}"
+                }
+            }
+        }
         stage("Install dependencies"){
             steps{
                 sh "npm ci"
